@@ -31,3 +31,25 @@ If you want to contribute improvements or new features we are happy to review
 your PR :)\
 Please use a meaningful commit message and add a little description of your
 changes.
+
+## License of Contributions
+
+golly-azure is **dual-licensed** under the [Apache License 2.0](LICENSE-APACHE)
+and the [MIT license](LICENSE-MIT) — the SPDX identifier is
+`Apache-2.0 OR MIT`. By submitting a pull request or otherwise
+intentionally contributing to this repository, you agree that your contribution
+is offered under **both** licenses, and that any downstream consumer may
+choose **either** license at their option — the same terms under which the
+project itself is offered.
+
+Concretely, by contributing you confirm that:
+
+- The contribution is your original work, or you have authority from the
+  copyright holder to license it under both licenses.
+- The project may distribute your contribution under both the Apache 2.0
+  license and the MIT license, and each downstream consumer may then use it
+  under whichever of those two licenses they select — without you owing any
+  additional terms or conditions.
+
+This is the standard "inbound = outbound" rule used across the Rust and Go
+ecosystems. The same clause appears verbatim in [LICENSING.md](LICENSING.md).
