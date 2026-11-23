@@ -438,8 +438,8 @@ func TestRefresh_NoSnapshotDeniesAndValidation(t *testing.T) {
 	if err := NewCachedEvaluatorFromCaller(nil, rg, 0).Refresh(context.Background()); err == nil {
 		t.Error("nil caller: want error")
 	}
-	//nolint:staticcheck // nil ctx is tolerated deliberately
-	if err := e.Refresh(nil); err != nil {
+	var nilCtx context.Context // nil ctx is tolerated deliberately
+	if err := e.Refresh(nilCtx); err != nil {
 		t.Errorf("nil ctx: %v", err)
 	}
 }
