@@ -2,6 +2,7 @@ package azcfg
 
 import (
 	"net/url"
+	"strings"
 
 	"oss.nandlabs.io/golly/textutils"
 )
@@ -17,7 +18,7 @@ func GetConfig(u *url.URL, name string) (cfg *Config) {
 	key := u.Host
 	cfg = Manager.Get(key)
 	if cfg == nil && u.Path != "" {
-		cfg = Manager.Get(key + textutils.ForwardSlashStr + u.Path)
+		cfg = Manager.Get(key + textutils.ForwardSlashStr + strings.TrimPrefix(u.Path, textutils.ForwardSlashStr))
 	}
 	if cfg == nil {
 		cfg = Manager.Get(name)

@@ -106,6 +106,14 @@ func TestGetConfig(t *testing.T) {
 	if GetConfig(&url.URL{Host: "acct", Path: "/x"}, "") != a {
 		t.Fatal("host match expected")
 	}
+	if GetConfig(&url.URL{Host: "acctx", Path: "/container"}, "") != nil {
+		t.Fatal("no match expected")
+	}
+	Manager.Register("ns/queue", b)
+	defer Manager.Unregister("ns/queue")
+	if GetConfig(&url.URL{Host: "ns", Path: "/queue"}, "") != b {
+		t.Fatal("host+path match expected")
+	}
 	if GetConfig(&url.URL{Host: "none"}, "fallback") != d {
 		t.Fatal("fallback expected")
 	}
